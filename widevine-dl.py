@@ -16,7 +16,7 @@ OUTPUT_PATH = FILE_DIRECTORY+"/output"
 
 arguments = argparse.ArgumentParser()
 arguments.add_argument("-l", "--mpd", dest="mpd", help="mpd link")
-arguments.add_argument("-k","--key", dest="key",  help="key")
+arguments.add_argument("-k","--keys", dest="key",  help="key")
 arguments.add_argument("-o", "--output", dest="output", help="File Name")
 
 args = arguments.parse_args()
