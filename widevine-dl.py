@@ -12,6 +12,14 @@ FILE_DIRECTORY=str(pathlib.Path(__file__).parent.absolute())
 TEMPORARY_PATH = FILE_DIRECTORY+"/cache"
 OUTPUT_PATH = FILE_DIRECTORY+"/output"
 
+
+arguments = argparse.ArgumentParser()
+arguments.add_argument("-l", "--mpd", dest="mpd", help="mpd link")
+arguments.add_argument("-k","--key", dest="key",  help="key")
+arguments.add_argument("-o", "--output", dest="output", help="File Name")
+
+args = arguments.parse_args()
+
 def osinfo():
 	global PLATFORM
 	if platform.system()== "Darwin":
@@ -79,7 +87,7 @@ def decrypt_content():
 
 def merge_content():
 	divider()
-	FILENAME=input("Enter File Name (with extension): \n> ")
+	FILENAME= str(args.output)
 	divider()
 	print("Merging Files and Processing %s.. (Takes a while)"%FILENAME)
 	time.sleep(2)
@@ -88,8 +96,8 @@ def merge_content():
 divider()
 print("**** Widevine-DL by vank0n ****")
 divider()
-MPD_URL = input("Enter MPD URL: \n> ")
-KEY_PROMPT = input("Enter WideVineDecryptor Prompt: \n> ")
+MPD_URL = str(args.mpd)
+KEY_PROMPT = str(args.keys)
 download_drm_content(MPD_URL)
 decrypt_content()
 merge_content()
