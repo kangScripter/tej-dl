@@ -51,15 +51,13 @@ def download_drm_content(mpd_url):
 	print("Processing Video Info..")
 	os.system('yt-dlp --external-downloader aria2c --no-warnings --allow-unplayable-formats --no-check-certificate -F "%s"'%mpd_url)
 	divider()
-        VIDEO_ID = "bv"
-	
-	AUDIO_ID = "ba"
+       
 	
 	divider()
 	print("Downloading Encrypted Video from CDN..")	
-	os.system(f'yt-dlp -o "{TEMPORARY_PATH}/encrypted_video.%(ext)s" --no-warnings --external-downloader aria2c --allow-unplayable-formats --no-check-certificate -f {VIDEO_ID} "{mpd_url}" -o "{TEMPORARY_PATH}/encrypted_video.%(ext)s"')
+	os.system(f'yt-dlp -o "{TEMPORARY_PATH}/encrypted_video.%(ext)s" --no-warnings --external-downloader aria2c --allow-unplayable-formats --no-check-certificate -f "bv" "{mpd_url}" -o "{TEMPORARY_PATH}/encrypted_video.%(ext)s"')
 	print("Downloading Encrypted Audio from CDN..")
-	os.system(f'yt-dlp -o "{TEMPORARY_PATH}/encrypted_audio.%(ext)s" --no-warnings --external-downloader aria2c --allow-unplayable-formats --no-check-certificate -f {AUDIO_ID} "{mpd_url}"')
+	os.system(f'yt-dlp -o "{TEMPORARY_PATH}/encrypted_audio.%(ext)s" --no-warnings --external-downloader aria2c --allow-unplayable-formats --no-check-certificate -f "ba" "{mpd_url}"')
 
 def decrypt_content():
 	extract_key(KEY_PROMPT)
