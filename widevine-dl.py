@@ -97,7 +97,7 @@ divider()
 print("Process Finished. Final Video File is saved in /output directory.")
 divider()
 
-delete_choice = input("Delete cache files? (y/n)\ny) Yes (default)\nn) No\ny/n> ")
+delete_choice = y
 
 if delete_choice == "n":
 	divider()
