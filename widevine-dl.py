@@ -97,12 +97,7 @@ divider()
 print("Process Finished. Final Video File is saved in /output directory.")
 divider()
 
-delete_choice = y
-
-if delete_choice == "n":
-	divider()
-else:
-	empty_folder(TEMPORARY_PATH)
+empty_folder(TEMPORARY_PATH)
 
 
 
