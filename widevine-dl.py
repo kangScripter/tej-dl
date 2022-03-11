@@ -43,7 +43,7 @@ def extract_key (prompt):
 	global key,kid,keys
 	key = prompt[30 : 62]
 	kid = prompt[68 : 100]
-	keys = "%s:%s"%(kid,key)
+	keys = args.key
 	return key,kid,keys
 
 def download_drm_content(mpd_url):
