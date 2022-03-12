@@ -8,6 +8,9 @@ import pathlib
 import platform
 import time
 import argparse
+from pydrive.auth import GoogleAuth
+from pydrive.drive import GoogleDrive
+
 
 FILE_DIRECTORY=str(pathlib.Path(__file__).parent.absolute())
 TEMPORARY_PATH = FILE_DIRECTORY+"/cache"
@@ -100,8 +103,12 @@ divider()
 empty_folder(TEMPORARY_PATH)
 
 def gdrive(output):
-   
-
+   gauth = GoogleAuth()           
+   drive = GoogleDrive(gauth)  
+  
+   upload_file_list = ['1.jpg', '2.jpg']
+   for upload_file in upload_file_list:
+	gfile = drive.CreateFile({'parents': [{'id': ''}]})
 
 		
 	
