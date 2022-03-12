@@ -89,16 +89,6 @@ def merge_content():
 	os.system('ffmpeg -i %s/decrypted_video.mp4 -i %s/decrypted_audio.m4a -c:v copy -c:a copy %s/%s'%(TEMPORARY_PATH,TEMPORARY_PATH,OUTPUT_PATH,FILENAME))
 
 
-def gdrive(output):
-   gauth = GoogleAuth()           
-   drive = GoogleDrive(gauth)  
-  
-   upload_file_list = output
-   for upload_file in upload_file_list:
-	gfile = drive.CreateFile({'parents': [{'id': '1Cmn0jBix62asqGo15R-FduooKixoXzdN'}]})
-        gfile.Upload()
-		
-
 divider()
 print("**** Widevine-DL by vank0n ****")
 divider()
