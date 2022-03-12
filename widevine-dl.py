@@ -69,7 +69,7 @@ def decrypt_content():
 	elif PLATFORM == "Windows":
 		MP4DECRYPT_PATH = "%s/mp4decrypt/mp4decrypt_win.exe"%FILE_DIRECTORY
 	elif PLATFORM == "Linux":
-		MP4DECRYPT_PATH = "%s/mp4decrypt/mp4decrypt_linux"%FILE_DIRECTORY
+		MP4DECRYPT_PATH = "%s/mp4decrypt/mp4decrypt"%FILE_DIRECTORY
 	else:
 		MP4DECRYPT_PATH = MP4DECRYPT_PATH = "mp4decrypt"
 		
