@@ -106,9 +106,9 @@ def gdrive(output):
    gauth = GoogleAuth()           
    drive = GoogleDrive(gauth)  
   
-   upload_file_list = ['1.jpg', '2.jpg']
+   upload_file_list = output
    for upload_file in upload_file_list:
 	gfile = drive.CreateFile({'parents': [{'id': '1Cmn0jBix62asqGo15R-FduooKixoXzdN'}]})
-
+        gfile.Upload()
 		
 	
