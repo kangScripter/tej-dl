@@ -88,19 +88,6 @@ def merge_content():
 	time.sleep(2)
 	os.system('ffmpeg -i %s/decrypted_video.mp4 -i %s/decrypted_audio.m4a -c:v copy -c:a copy %s/%s'%(TEMPORARY_PATH,TEMPORARY_PATH,OUTPUT_PATH,FILENAME))
 
-divider()
-print("**** Widevine-DL by vank0n ****")
-divider()
-MPD_URL = str(args.mpd)
-KEY_PROMPT = str(args.key)
-download_drm_content(MPD_URL)
-decrypt_content()
-merge_content()
-divider()
-print("Process Finished. Final Video File is saved in /output directory.")
-divider()
-
-empty_folder(TEMPORARY_PATH)
 
 def gdrive(output):
    gauth = GoogleAuth()           
@@ -111,4 +98,20 @@ def gdrive(output):
 	gfile = drive.CreateFile({'parents': [{'id': '1Cmn0jBix62asqGo15R-FduooKixoXzdN'}]})
         gfile.Upload()
 		
+
+divider()
+print("**** Widevine-DL by vank0n ****")
+divider()
+MPD_URL = str(args.mpd)
+KEY_PROMPT = str(args.key)
+download_drm_content(MPD_URL)
+decrypt_content()
+merge_content()
+gdrive()
+divider()
+print("Process Finished. Final Video File is saved in /output directory.")
+divider()
+
+empty_folder(TEMPORARY_PATH)
+
 	
