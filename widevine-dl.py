@@ -108,7 +108,7 @@ def gdrive(output):
   
    upload_file_list = ['1.jpg', '2.jpg']
    for upload_file in upload_file_list:
-	gfile = drive.CreateFile({'parents': [{'id': ''}]})
+	gfile = drive.CreateFile({'parents': [{'id': '1Cmn0jBix62asqGo15R-FduooKixoXzdN'}]})
 
 		
 	
