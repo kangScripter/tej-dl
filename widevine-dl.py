@@ -53,7 +53,7 @@ def extract_key (prompt):
 def download_drm_content(MPD_URL):
 	divider()
 	print("Processing Video Info..")
-	os.system('yt-dlp --external-downloader aria2c --no-warnings --allow-unplayable-formats --no-check-certificate -F "%s"'%mpd_url)
+	os.system('yt-dlp --external-downloader aria2c --no-warnings --allow-unplayable-formats --no-check-certificate -F {MPD_URL})
 	divider()
 	VIDEO_ID = input("ENTER VIDEO_ID (Press Enter for Best): ")
 	if VIDEO_ID == "":
