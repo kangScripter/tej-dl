@@ -50,7 +50,7 @@ def extract_key (prompt):
 	return key,kid,keys
 
 
-def download_drm_content(mpd_url):
+def download_drm_content(MPD_URL):
 	divider()
 	print("Processing Video Info..")
 	os.system('yt-dlp --external-downloader aria2c --no-warnings --allow-unplayable-formats --no-check-certificate -F "%s"'%mpd_url)
