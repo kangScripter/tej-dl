@@ -24,7 +24,7 @@ aria2c = dirPath + '/bin/aria2c.exe'
 mp4decrypt = dirPath + '/bin/mp4decrypt'
 mkvmerge = dirPath + '/bin/mkvmerge.exe'
 
-output = str(args.output)
+OUTPUT = str(args.output)
 
 mpd = str(args.mpd)
 KEY = str(args.key)
@@ -45,9 +45,10 @@ print("\nDone..")
 subprocess.run(f'{mp4decrypt} --key {KEY} --show-progress Encrypted.Audio.m4a Decrypted.Audio.m4a')
 subprocess.run(f'{mp4decrypt} --key {KEY} --show-progress Encrypted.Video.mp4 Decrypted.Video.mp4')
 print()
-print("\n Merging..")
+print("\n Merging...")
+os.system('ffmpeg -i Decrypted_Video.mp4 -i Decrypted_Audio.m4a -c:v copy -c:a copy OUTPUT))
 
-subprocess.run([mkvmerge, '--ui-language' ,'en', '--output', output +'.mkv', '--language', '0:und', '--default-track', '0:yes', '--compression', '0:none', 'Decrypted.Video.mp4', '--language', '0:und', '--default-track', '0:yes', '--compression' ,'0:none', 'Decrypted.Audio.m4a','--language', '0:id'])
+
 
 print("\n Cleaning...")
 os.remove("Decrypted.Video.mp4")
