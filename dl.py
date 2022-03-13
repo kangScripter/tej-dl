@@ -46,8 +46,9 @@ subprocess.run(f'{mp4decrypt} --key {KEY} --show-progress Encrypted.Audio.m4a De
 subprocess.run(f'{mp4decrypt} --key {KEY} --show-progress Encrypted.Video.mp4 Decrypted.Video.mp4')
 print()
 print("\n Merging...")
-os.system('ffmpeg -i Decrypted_Video.mp4 -i Decrypted_Audio.m4a -c:v copy -c:a copy (OUTPUT))
+print("FFMPEG....")
 
+subprocess.run(['ffmpeg' ,'-i', 'Decrypted_Video.mp4', '-i', 'Decrypted_Audio.m4a', '-c:v', 'copy', '-c:a', 'copy', OUTPUT]) 
 
 
 print("\n Cleaning...")
