@@ -19,9 +19,9 @@ realPath = os.path.realpath(currentFile)
 dirPath = os.path.dirname(realPath)
 dirName = os.path.basename(dirPath)
 
-ytdlp = dirPath + '/bin/yt-dlp'
+ytdlp = dirPath + '/mp4decrypt/yt-dlp'
 aria2c = dirPath + '/bin/aria2c.exe'
-mp4decrypt = dirPath + '/bin/mp4decrypt'
+mp4decrypt = dirPath + '/mp4decrypt/mp4decrypt'
 mkvmerge = dirPath + '/bin/mkvmerge.exe'
 
 OUTPUT = str(args.output)
@@ -32,11 +32,11 @@ KEY = str(args.key)
 
 
 print("\n Downloading..")
-subprocess.run([ytdlp, '-k', '--allow-unplayable-formats', '--user-agent', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.45 Safari/537.36', '--no-check-certificate', '-F', mpd])
+subprocess.run(['yt-dlp', '-k', '--allow-unplayable-formats', '--user-agent', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.45 Safari/537.36', '--no-check-certificate', '-F', mpd])
 video_id = input("Input Video ID : ")
 audio_id = input("Input Audio ID : ")
-subprocess.run([ytdlp, '-k', '--allow-unplayable-formats','--no-check-certificate', '-f', audio_id, '--fixup', 'never', mpd, '-o', 'Encrypted.Audio.m4a', '--external-downloader', aria2c, '--external-downloader-args', '-x 16 -s 16 -k 1M'])
-subprocess.run([ytdlp, '-k', '--allow-unplayable-formats', '--no-check-certificate', '-f', video_id, '--fixup', 'never', mpd, '-o', 'Encrypted.Video.mp4', '--external-downloader', aria2c, '--external-downloader-args', '-x 16 -s 16 -k 1M'])
+subprocess.run(['yt-dlp', '-k', '--allow-unplayable-formats','--no-check-certificate', '-f', audio_id, '--fixup', 'never', mpd, '-o', 'Encrypted.Audio.m4a', '--external-downloader', aria2c, '--external-downloader-args', '-x 16 -s 16 -k 1M'])
+subprocess.run(['yt-dlp', '-k', '--allow-unplayable-formats', '--no-check-certificate', '-f', video_id, '--fixup', 'never', mpd, '-o', 'Encrypted.Video.mp4', '--external-downloader', aria2c, '--external-downloader-args', '-x 16 -s 16 -k 1M'])
   
 print("\n\n")  
 print("\n\nDecrypt Video & Audio...")
