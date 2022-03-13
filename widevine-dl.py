@@ -49,20 +49,25 @@ def extract_key (prompt):
 	keys = args.key
 	return key,kid,keys
 
+
 def download_drm_content(mpd_url):
 	divider()
 	print("Processing Video Info..")
 	os.system('yt-dlp --external-downloader aria2c --no-warnings --allow-unplayable-formats --no-check-certificate -F "%s"'%mpd_url)
 	divider()
-       
+	VIDEO_ID = input("ENTER VIDEO_ID (Press Enter for Best): ")
+	if VIDEO_ID == "":
+		VIDEO_ID = "bv"
+	
+	AUDIO_ID = input("ENTER AUDIO_ID (Press Enter for Best): ")
+	if AUDIO_ID == "":
+		AUDIO_ID = "ba"
 	
 	divider()
 	print("Downloading Encrypted Video from CDN..")	
-	os.system(f'yt-dlp -o "{TEMPORARY_PATH}/encrypted_video.%(ext)s" --no-warnings --external-downloader aria2c --allow-unplayable-formats --no-check-certificate -f "bv" "{mpd_url}" -o "{TEMPORARY_PATH}/encrypted_video.%(ext)s"')
+	os.system(f'yt-dlp -o "{TEMPORARY_PATH}/encrypted_video.%(ext)s" --no-warnings --external-downloader aria2c --allow-unplayable-formats --no-check-certificate -f {VIDEO_ID} "{mpd_url}" -o "{TEMPORARY_PATH}/encrypted_video.%(ext)s"')
 	print("Downloading Encrypted Audio from CDN..")
-	os.system(f'yt-dlp -o "{TEMPORARY_PATH}/encrypted_audio.%(ext)s" --no-warnings --external-downloader aria2c --allow-unplayable-formats --no-check-certificate -f "ba" "{mpd_url}"')
-
-def decrypt_content():
+	os.system(f'yt-dlp -o "{TEMPORARY_PATH}/encrypted_audio.%(ext)s" --no-warnings --external-downloader aria2c --allow-unplayable-formats --no-check-certificate -f {AUDIO_ID} "{mpd_url}"')def decrypt_content():
 	extract_key(KEY_PROMPT)
 	divider()
 	print("Decrypting WideVine DRM.. (Takes some time)")
