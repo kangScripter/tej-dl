@@ -97,9 +97,9 @@ def merge_content():
 def rclone():
     print("Uploading Gdrive..[Rclone]")
     FILENAME = args.output
-    output =  '/usr/src/app/tej-dl/output/' + f"{FILENAME}"
+    output =  OUTPUT_PATH + f"{FILENAME}"
     print(output)
-    subprocess.run(['rclone','copy', output,'Rose:/Rclone'],shell = True)
+    subprocess.run(['rclone','copy', output,'Rose:/Rclone'])
 
 divider()
 print("**** Widevine-DL by vank0n ****")
