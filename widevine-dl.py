@@ -8,8 +8,6 @@ import pathlib
 import platform
 import time
 import argparse
-from pydrive.auth import GoogleAuth
-from pydrive.drive import GoogleDrive
 
 
 FILE_DIRECTORY=str(pathlib.Path(__file__).parent.absolute())
@@ -99,7 +97,7 @@ def merge_content():
 def rclone():
     print("Uploading Gdrive..[Rclone]")
     FILENAME = str(args.output)
-    output =  '/usr/src/app/tej-dl/output/{FILENAME}'
+    output =  '/usr/src/app/tej-dl/output/' + f"{FILENAME}"
     subprocess.run('rlcone','copy', output,'Rose:/Rclone')
 
 divider()
