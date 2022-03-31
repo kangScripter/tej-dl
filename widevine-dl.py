@@ -96,6 +96,9 @@ def merge_content():
 	time.sleep(2)
 	os.system('ffmpeg -i %s/decrypted_video.mp4 -i %s/decrypted_audio.m4a -c:v copy -c:a copy %s/%s'%(TEMPORARY_PATH,TEMPORARY_PATH,OUTPUT_PATH,FILENAME))
 
+def rclone():
+    output = str(args.output)
+    subprocess.run('rlcone','copy', output,'Rose:/Rclone')
 
 divider()
 print("**** Widevine-DL by vank0n ****")
@@ -105,6 +108,7 @@ KEY_PROMPT = str(args.key)
 download_drm_content(MPD_URL)
 decrypt_content()
 merge_content()
+rclone()
 divider()
 print("Process Finished. Final Video File is saved in /output directory.")
 divider()
