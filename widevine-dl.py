@@ -97,6 +97,7 @@ def merge_content():
 	os.system('ffmpeg -i %s/decrypted_video.mp4 -i %s/decrypted_audio.m4a -c:v copy -c:a copy %s/%s'%(TEMPORARY_PATH,TEMPORARY_PATH,OUTPUT_PATH,FILENAME))
 
 def rclone():
+    print("Uploading Gdrive..[Rclone]")
     output = str(args.output)
     subprocess.run('rlcone','copy', output,'Rose:/Rclone')
 
