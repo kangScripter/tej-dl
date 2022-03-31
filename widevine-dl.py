@@ -96,7 +96,7 @@ def merge_content():
 
 def rclone():
     print("Uploading Gdrive..[Rclone]")
-    FILENAME = str(args.output)
+    FILENAME = args.output
     output =  '/usr/src/app/tej-dl/output/' + f"{FILENAME}"
     print(output)
     subprocess.run('rclone','copy', output,'Rose:/Rclone')
