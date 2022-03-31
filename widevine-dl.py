@@ -99,7 +99,7 @@ def rclone():
     FILENAME = args.output
     output =  '/usr/src/app/tej-dl/output/' + f"{FILENAME}"
     print(output)
-    subprocess.run('rclone','copy', output,'Rose:/Rclone')
+    subprocess.run(['rclone','copy', output,'Rose:/Rclone'],shell = True)
 
 divider()
 print("**** Widevine-DL by vank0n ****")
