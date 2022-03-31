@@ -98,7 +98,7 @@ def rclone():
     print("Uploading Gdrive..[Rclone]")
     FILENAME = str(args.output)
     output =  '/usr/src/app/tej-dl/output/' + f"{FILENAME}"
-    subprocess.run('rlcone','copy', output,'Rose:/Rclone')
+    subprocess.run('rclone','copy', output,'Rose:/Rclone')
 
 divider()
 print("**** Widevine-DL by vank0n ****")
